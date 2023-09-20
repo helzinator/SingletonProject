@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LEVEL1.unity
     guid: cad75319d39b89541847cdbb341f6aaf
+  - enabled: 1
+    path: Assets/Scenes/LEVEL2.unity
+    guid: a6a9cbb9e02784d438cf70002045946b
+  - enabled: 1
+    path: Assets/Scenes/LoseMenu.unity
+    guid: f258ccd4d507cfd41ba5d08130c10a63
   m_configObjects: {}

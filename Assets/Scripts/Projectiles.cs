@@ -21,6 +21,7 @@ public class Projectiles : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(collision.gameObject);
+            Singleton.Instance.IncrementScore();
             Destroy(gameObject);
         }
         else if(collision.gameObject.tag == "Boundary")
