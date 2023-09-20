@@ -10,8 +10,10 @@ public class Singleton : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI attemptsText;
+    [SerializeField] TextMeshProUGUI countdown;
     public int Score;
     public int Attempts;
+    float currentTime;
     public GameObject EnemyCount;
 
     private void Awake()
@@ -27,13 +29,18 @@ public class Singleton : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Update()
+    {
+        currentTime += 1 * Time.deltaTime;
+        countdown.text = $"{currentTime}";
+    }
 
     public void IncrementScore()
     { 
         Debug.Log("You gained one point!");
         Score++;
         scoreText.text = $"Score={Score}";
-        if(EnemyCount.transform.childCount < 0)
+        if(EnemyCount.transform.childCount == 1)
         {
             Debug.Log("On to the next level");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
