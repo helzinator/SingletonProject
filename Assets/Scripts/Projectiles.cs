@@ -16,4 +16,17 @@ public class Projectiles : MonoBehaviour
     {
         transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("I've hit something");
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else if(collision.gameObject.tag == "Boundary")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
