@@ -12,9 +12,11 @@ public class Singleton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI attemptsText;
     public int Score;
     public int Attempts;
+    public GameObject EnemyCount;
 
     private void Awake()
     {
+        EnemyCount = GameObject.FindGameObjectWithTag ("EnemyFlock");
         if(Instance == null)
         {
             Instance = this;
@@ -31,6 +33,11 @@ public class Singleton : MonoBehaviour
         Debug.Log("You gained one point!");
         Score++;
         scoreText.text = $"Score={Score}";
+        if(EnemyCount.transform.childCount < 0)
+        {
+            Debug.Log("On to the next level");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void IncrementAttempts()

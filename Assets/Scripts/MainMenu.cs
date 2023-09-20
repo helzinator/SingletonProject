@@ -5,11 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private void Start()
-    {
-        int Attempts = Singleton.Instance.Attempts;
-        Debug.Log(Attempts);
-    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene("LEVEL1");
